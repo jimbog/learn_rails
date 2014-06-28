@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
     @contact  = Contact.new(secure_params)
     if @contact.valid?
       # save the data
+      @contact.update_spreadsheet
       # send message
       flash[:notice] = "message sent from #{@contact.name}"
       redirect_to root_path
